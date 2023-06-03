@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href={% url 'task_form' %}>create task</a>
+   
+    <ul>
+        {% for Task in tasks %}
+            <li>{{ Task.title }}</li>
+            <a href={% url 'task_detail' Task.id%}>view</a>
+            <a href={% url 'task_update' Task.id %}>update</a>
+            <a href={% url 'task_confirm_delete' Task.id %}>delete</a>
+        {% endfor %}
+    </ul>
+{% endblock %}
